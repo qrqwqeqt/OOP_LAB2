@@ -7,6 +7,8 @@ Shape* pcshape[MY_SHAPE_ARRAY_SIZE];
 int size = 0;
 bool pressed;
 HPEN hPenOld, hPen;
+HBRUSH hBrush, hBrushOld;
+
 
 // Constructor
 ShapeObjectsEditor::ShapeObjectsEditor()
@@ -224,6 +226,9 @@ void EllipseEditor::OnLBdown(HWND hWnd) {
 
 void EllipseEditor::OnLBup(HWND hWnd) {
 	__super::OnLBup(hWnd);
+	HDC hdc = GetDC(hWnd);
+	hBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 200)); //новий пензль
+	hBrushOld = (HBRUSH)SelectObject(hdc, hBrush);
 	EllipseShape* Ellipse = new EllipseShape;
 	Ellipse->Set(2 * x1 - x2, 2 * y1 - y2, x2, y2);
 	pcshape[size] = Ellipse;

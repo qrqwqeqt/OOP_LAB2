@@ -35,7 +35,12 @@ void RectShape::Show(HDC hdc) {
     hBrushOld = (HBRUSH)SelectObject(hdc, hBrush);
 	SelectObject(hdc, hBrush);
 
-	Rectangle(hdc, xs1, ys1, xs2, ys2);				// Create rectangle
+	//Rectangle(hdc, xs1, ys1, xs2, ys2);				// Create rectangle
+	MoveToEx(hdc, xs1, ys1, NULL);
+	LineTo(hdc, xs2, ys1);
+	LineTo(hdc, xs2, ys2);
+	LineTo(hdc, xs1, ys2);
+	LineTo(hdc, xs1, ys1);
 
 	SelectObject(hdc, hBrushOld);
 	DeleteObject(hBrush);
@@ -48,9 +53,13 @@ void EllipseShape::Show(HDC hdc) {
 	HBRUSH hBrush, hBrushOld;
 	hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0)); // Create pen
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
+	hBrush = CreateSolidBrush(RGB(0, 0, 200));
+	hBrushOld = (HBRUSH)SelectObject(hdc, hBrush);
+	SelectObject(hdc, hBrush);
+    Ellipse(hdc, xs1, ys1, xs2, ys2);    // Create ellipse
 
-    Arc(hdc, xs1, ys1, xs2, ys2, 0, 0, 0, 0);    // Create ellipse
-
+	SelectObject(hdc, hBrushOld);
+	DeleteObject(hBrush);
 	SelectObject(hdc, hPenOld);
-	DeleteObject(hPen);
+	DeleteObject(hPen); DeleteObject(hPen);
 };

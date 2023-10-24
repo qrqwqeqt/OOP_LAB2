@@ -152,15 +152,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             {
             case IDM_POINT:
                 editorShape.StartPointEditor(); //початок вводу точкових об’єктів
+                SetWindowText(hWnd, L"Точка");
                 break;
             case IDM_LINE:
                 editorShape.StartLineEditor(); //початок вводу об’єктів-ліній
+                SetWindowText(hWnd, L"Лінія");
                 break;
             case IDM_RECT:
                 editorShape.StartRectEditor(); //початок вводу прямокутників
+                SetWindowText(hWnd, L"Прямокутник");
                 break;
             case IDM_ELLIPSE:
                 editorShape.StartEllipseEditor(); //початок вводу еліпсів
+                SetWindowText(hWnd, L"Еліпс");
                 break;
             case IDM_ABOUT:
                 DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
