@@ -53,7 +53,7 @@ void EllipseShape::Show(HDC hdc) {
 	HBRUSH hBrush, hBrushOld;
 	hPen = CreatePen(PS_SOLID, 1, RGB(0, 0, 0)); // Create pen
 	hPenOld = (HPEN)SelectObject(hdc, hPen);
-	hBrush = CreateSolidBrush(RGB(0, 0, 200));
+	hBrush = CreateSolidBrush(RGB(52, 52, 252));
 	hBrushOld = (HBRUSH)SelectObject(hdc, hBrush);
 	SelectObject(hdc, hBrush);
     Ellipse(hdc, xs1, ys1, xs2, ys2);    // Create ellipse
