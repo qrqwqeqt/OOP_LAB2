@@ -3,7 +3,7 @@
 #include "shape.h"
 #include "resource.h"
 
-class ShapeEditor : public Editor // Shape editor class for figures
+class ShapeEditor : public Editor 
 {
 protected:
 	int x1, x2, y1, y2;
@@ -15,7 +15,7 @@ public:
 	virtual void OnInitMenuPopup(HWND, WPARAM);
 };
 
-class ShapeObjectsEditor // Shape editor class for figure objects
+class ShapeObjectsEditor 
 {
 private:
 	ShapeEditor *pse;

@@ -1,4 +1,4 @@
-class Shape // Shape class for figures
+class Shape 
 {
 protected:
 	long xs1, ys1, xs2, ys2;
@@ -12,7 +12,7 @@ class PointShape : public Shape
 public:
 	void Show(HDC);
 };
-
+	
 class LineShape : public Shape
 {
 public:

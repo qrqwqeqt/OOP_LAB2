@@ -129,41 +129,41 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
     switch (message)
     {
-    case WM_LBUTTONDOWN: //натиснуто ліву кнопку миші у клієнтській частині вікна
+    case WM_LBUTTONDOWN: 
         editorShape.OnLBdown(hWnd);
         break;
-    case WM_LBUTTONUP: //відпущено ліву кнопку миші у клієнтській частині вікна
+    case WM_LBUTTONUP: 
         editorShape.OnLBup(hWnd);
         break;
-    case WM_MOUSEMOVE: //пересунуто мишу у клієнтській частині вікна
+    case WM_MOUSEMOVE: 
         editorShape.OnMouseMove(hWnd);
         break;
     case WM_INITMENUPOPUP:
         editorShape.OnInitMenuPopup(hWnd, wParam);
         break;
-    case WM_PAINT: //потрібно оновлення зображення клієнтської частині вікна
+    case WM_PAINT:
         editorShape.OnPaint(hWnd);
         break;
     case WM_COMMAND:
         {
             int wmId = LOWORD(wParam);
-            // Разобрать выбор в меню:
+            
             switch (wmId)
             {
             case IDM_POINT:
-                editorShape.StartPointEditor(); //початок вводу точкових об’єктів
+                editorShape.StartPointEditor();
                 SetWindowText(hWnd, L"Точка");
                 break;
             case IDM_LINE:
-                editorShape.StartLineEditor(); //початок вводу об’єктів-ліній
+                editorShape.StartLineEditor(); 
                 SetWindowText(hWnd, L"Лінія");
                 break;
             case IDM_RECT:
-                editorShape.StartRectEditor(); //початок вводу прямокутників
+                editorShape.StartRectEditor(); 
                 SetWindowText(hWnd, L"Прямокутник");
                 break;
             case IDM_ELLIPSE:
-                editorShape.StartEllipseEditor(); //початок вводу еліпсів
+                editorShape.StartEllipseEditor();
                 SetWindowText(hWnd, L"Еліпс");
                 break;
             case IDM_ABOUT:

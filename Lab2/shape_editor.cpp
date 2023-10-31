@@ -2,7 +2,7 @@
 #include "shape_editor.h"
 
 // Variables
-const int MY_SHAPE_ARRAY_SIZE = 110;
+const int MY_SHAPE_ARRAY_SIZE = 103;
 Shape* pcshape[MY_SHAPE_ARRAY_SIZE];
 int size = 0;
 bool pressed;
@@ -10,19 +10,18 @@ HPEN hPenOld, hPen;
 HBRUSH hBrush, hBrushOld;
 
 
-// Constructor
 ShapeObjectsEditor::ShapeObjectsEditor()
 {
 	pse = new PointEditor;
 }
 
-// Destructor
+
 ShapeObjectsEditor::~ShapeObjectsEditor()
 {
 	for (int i = 0; i < size; i++) delete pcshape[i];
 }
 
-// ShapeObjectsEditor functions
+
 void ShapeObjectsEditor::StartPointEditor()
 {
 	if (pse) delete pse;
@@ -104,11 +103,11 @@ void ShapeEditor::OnPaint(HWND hWnd) {
 
 // Point:
 void PointEditor::OnLBdown(HWND hWnd) {
-	__super::OnLBdown(hWnd); // Calling a base-class implementation
+	__super::OnLBdown(hWnd); 
 }
 
 void PointEditor::OnLBup(HWND hWnd) {
-	__super::OnLBup(hWnd); // Calling a base-class implementation
+	__super::OnLBup(hWnd); 
 	PointShape* Point = new PointShape;
 	Point->Set(x1, y1, x2, y2);
 	pcshape[size] = Point;
@@ -130,11 +129,11 @@ void PointEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
 
 // Line:
 void LineEditor::OnLBdown(HWND hWnd) {
-	__super::OnLBdown(hWnd); // Calling a base-class implementation
+	__super::OnLBdown(hWnd); 
 }
 
 void LineEditor::OnLBup(HWND hWnd) {
-	__super::OnLBup(hWnd); // Calling a base-class implementation
+	__super::OnLBup(hWnd); 
 	LineShape* Line = new LineShape;
 	Line->Set(x1, y1, x2, y2);
 	pcshape[size] = Line;
@@ -176,11 +175,11 @@ void LineEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
 
 // Rect: 
 void RectEditor::OnLBdown(HWND hWnd) {
-	__super::OnLBdown(hWnd); // Calling a base-class implementation
+	__super::OnLBdown(hWnd); 
 }
 
 void RectEditor::OnLBup(HWND hWnd) {
-	__super::OnLBup(hWnd); // Calling a base-class implementation
+	__super::OnLBup(hWnd); 
 	RectShape* Rect = new RectShape;
 	Rect->Set(2 * x1 - x2, 2 * y1 - y2, x2, y2);
 	pcshape[size] = Rect;
@@ -220,14 +219,14 @@ void RectEditor::OnInitMenuPopup(HWND hWnd, WPARAM wParams) {
 
 // Ellipse:
 void EllipseEditor::OnLBdown(HWND hWnd) {
-	__super::OnLBdown(hWnd); // Calling a base-class implementation
+	__super::OnLBdown(hWnd); 
 }
 
 
 void EllipseEditor::OnLBup(HWND hWnd) {
 	__super::OnLBup(hWnd);
 	HDC hdc = GetDC(hWnd);
-	hBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 200)); //новий пензль
+	hBrush = (HBRUSH)CreateSolidBrush(RGB(0, 0, 200)); 
 	hBrushOld = (HBRUSH)SelectObject(hdc, hBrush);
 	EllipseShape* Ellipse = new EllipseShape;
 	Ellipse->Set(x1, y1, x2, y2);
